@@ -1,9 +1,10 @@
 export interface Component {
   attachTo(parent: HTMLElement, position?: InsertPosition): void;
   removeFrom(parent: HTMLElement): void;
+  attach(component: Component, position?: InsertPosition): void;
 }
 
-// html element 를 만드는 캡슐화 
+// html element 를 만드는 캡슐화
 export class BaseComponent<T extends HTMLElement> implements Component {
   // 제네릭 사용, 하위 컴포넌트에서만 볼 수 있도록 protected
   protected readonly element: T;
@@ -23,4 +24,9 @@ export class BaseComponent<T extends HTMLElement> implements Component {
     }
     parent.removeChild(this.element);
   }
+  attach(component: Component, position?: InsertPosition) {
+    component.attachTo(this.element, position);
+  }
 }
+
+
