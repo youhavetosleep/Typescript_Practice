@@ -57,3 +57,6 @@ type Name = Person['name']
 // 인터페이스로는 구현할 수 없음
 type NumberType = number;
 type Direction = 'left' | 'right';
+
+// type과 interface 중
+// 실무에선 interface의 사용이 선호되는데 이유와 두 가지의 차이점은 무엇일까
